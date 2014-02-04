@@ -43,7 +43,6 @@
  *
  */
 
-
 jQuery.extend({
     highlight: function (node, re, nodeName, className) {
         if (node.nodeType === 3) {
@@ -87,15 +86,13 @@ jQuery.fn.highlight = function (words, options) {
     if (words.constructor === String) {
         words = [words];
     }
-    
     words = jQuery.grep(words, function(word, i){
-      return word !== '';
+      return word != '';
     });
-    
     words = jQuery.map(words, function(word, i) {
       return word.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     });
-    if (words.length === 0) { return this; }
+    if (words.length == 0) { return this; };
 
     var flag = settings.caseSensitive ? "" : "i";
     var pattern = "(" + words.join("|") + ")";
